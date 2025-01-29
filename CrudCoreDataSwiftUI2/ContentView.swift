@@ -22,6 +22,8 @@ struct ContentView: View {
             List {
                 ForEach(viewModel.notes) { note in
                     HStack {
+                        
+                        //title and body 
                         VStack(alignment: .leading) {
                             Text(note.title ?? "Untitled")
                                 .font(.headline)

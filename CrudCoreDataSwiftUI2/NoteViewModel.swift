@@ -20,6 +20,7 @@ class NoteViewModel: ObservableObject {
         fetchNotes()
     }
 
+    //For fetching Note
     func fetchNotes() {
         let request: NSFetchRequest<Note> = Note.fetchRequest()
         let sortDescriptor = NSSortDescriptor(keyPath: \Note.createdAt, ascending: false)
@@ -32,6 +33,7 @@ class NoteViewModel: ObservableObject {
         }
     }
 
+    //For adding Note
     func addNote(title: String, body: String, isFavorite: Bool) {
         let newNote = Note(context: viewContext)
         newNote.id = UUID()
@@ -44,6 +46,7 @@ class NoteViewModel: ObservableObject {
         fetchNotes()
     }
 
+    // Update the Note
     func updateNote(_ note: Note, title: String, body: String, isFavorite: Bool) {
         note.title = title
         note.body = body
@@ -52,6 +55,7 @@ class NoteViewModel: ObservableObject {
         fetchNotes()
     }
 
+    // Delete Note
     func deleteNote(_ note: Note) {
         viewContext.delete(note)
         saveContext()
